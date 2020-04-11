@@ -1,24 +1,53 @@
-# README
+#Chat-space の DB 設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# users テーブル
 
-Things you may want to cover:
+| column   | Type   | Options                  |
+| -------- | ------ | ------------------------ |
+| name     | string | null: false              |
+| email    | string | null: false,unique: true |
+| password | string | null: false              |
 
-* Ruby version
+## Association
 
-* System dependencies
+- has_many :messages
+- has_many :groups_users
+- has_many :groups, though: :groups_users
 
-* Configuration
+# groups テーブル
 
-* Database creation
+| column     | Type   | Options                  |
+| ---------- | ------ | ------------------------ |
+| group_name | string | null: false,unique: true |
 
-* Database initialization
+## Association
 
-* How to run the test suite
+- has_many :messages
+- has_many :groups_users
+- has_many :users, though: :groups_users
 
-* Services (job queues, cache servers, search engines, etc.)
+# messages テーブル
 
-* Deployment instructions
+| column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| body   | text       | null: false                    |
+| image  | string     |                                |
+| user   | references | null: false, foreign_key: true |
+| group  | references | null: false, foreign_key: true |
 
-* ...
+## Association
+
+- belongs_to :user
+- belongs_to :group
+
+# groups_users テーブル
+
+| column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| group  | references | null: false, foreign_key: true |
+
+## Association
+
+- belongs_to :user
+- belongs_to :group
