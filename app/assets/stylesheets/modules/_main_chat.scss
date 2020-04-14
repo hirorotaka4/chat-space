@@ -1,0 +1,101 @@
+.main-chat {
+  width: calc(100vw - 300px);
+  height: 100vh;
+  background-color: $white;
+  .header {
+    height: 100px;
+    border-bottom-color: #eeeeee;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    &__left-box {
+      margin-top: 35px;
+      &__group-name {
+        color: #333333;
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+      &__members {
+        display: flex;
+        font-size: 12px;
+        color: #999999;
+        &__name {
+          margin-left: 5px;
+        }
+      }
+    }
+    &__edit-button {
+      text-decoration: none;
+      color: $light_blue;
+      font-size: 16px;
+      &__edit {
+        height: 40px;
+        line-height: 40px;
+        width: 72px;
+        padding: 0 20px;
+        margin-top: 28px;
+        border: 1px solid $light_blue;
+      }
+    }
+  }
+  .messages {
+    height: calc(100vh - 190px);
+    background-color: #fafafa;
+    padding: 35px 0 0 40px;
+    .message-box {
+      margin-bottom: 46px;
+      &__contributor-info {
+        margin-bottom: 12px;
+        display: flex;
+        &__user-name {
+          font-size: 16px;
+          color: #333333;
+        }
+        &__daytime {
+          font-size: 12px;
+          color: #999999;
+          margin: 0 10px;
+        }
+      }
+      &__message {
+        font-size: 14px;
+        color: #434a54;
+      }
+    }
+  }
+  .message-form {
+    height: 90px;
+    background-color: #d2d2d2;
+    padding: 20px 40px;
+    .new-message {
+      display: flex;
+      &__input-box {
+        width: 100%;
+        position: relative;
+        &__text {
+          height: 50px;
+          width: 100%;
+          padding: 0 40px 0 10px;
+          border-style: none;
+        }
+        &__image {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+          input {
+            display: none;
+          }
+        }
+      }
+      &__submit-btn {
+        height: 50px;
+        width: 100px;
+        margin-left: 15px;
+        background-color: $light_blue;
+        color: $white;
+        cursor: pointer;
+      }
+    }
+  }
+}
