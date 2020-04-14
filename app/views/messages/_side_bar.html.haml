@@ -1,11 +1,12 @@
 .side-bar
   .side-header
     .side-header__box
-      %p.side-header__box__name たけし
+      %p.side-header__box__name 
+        = current_user.name
       .side-header__box__icon
         = link_to "#", class: "side-header__box__icon__new" do
           %i.far.fa-edit
-        = link_to "#", class: "side-header__box__icon__edit" do
+        = link_to edit_user_path(current_user), class: "side-header__box__icon__edit" do
           %i.fa.fa-cog
   .group-list
     .group
