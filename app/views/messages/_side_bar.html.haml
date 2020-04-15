@@ -4,15 +4,15 @@
       %p.side-header__box__name 
         = current_user.name
       .side-header__box__icon
-        = link_to "#", class: "side-header__box__icon__new" do
+        = link_to new_group_path, class: "side-header__box__icon__new" do
           %i.far.fa-edit
         = link_to edit_user_path(current_user), class: "side-header__box__icon__edit" do
           %i.fa.fa-cog
   .group-list
-    .group
-      %P.group__name ハイグレ集団
-      %p.group__latest おはよう
-    .group
-      %P.group__name ハイグレ集団
-      %p.group__latest おはよう
-  
+    - current_user.groups.each do |group|
+      .group
+        = link_to '#' do
+          .group__name
+            = group.name
+          .group__latest  
+            メッセージはまだありません。
