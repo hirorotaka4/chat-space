@@ -6,7 +6,7 @@
       %ul.header__left-box__members
         Member :
         %li.header__left-box__members__name
-          - @members.each do |member|
+          - @group.users.each do |member|
             = member.name
     = link_to edit_group_path(current_user), class: "header__edit-button" do
       .header__edit-button__edit Edit
