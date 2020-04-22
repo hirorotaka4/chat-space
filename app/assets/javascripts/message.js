@@ -58,6 +58,7 @@ $(function () {
       })
       .fail(function () {
         alert("メッセージ送信に失敗しました");
+        $(".new-message__submit-btn").prop("disabled", false);
       });
   });
 });
